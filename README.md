@@ -4,7 +4,9 @@ Interactive React prototype built with Vite. Photography is bundled locally; see
 
 ## Run locally
 
-Run `npm install` and `npm run dev`, then open the local URL printed by Vite. Run `npm run build` for a production bundle and publish the `build/` directory on a static host. The build also creates `open.html`, which you can double-click for a local preview without a server. Keep the `dist/assets/` folder alongside it. All journeys use fictional data and browser-local state.
+Run `npm install` and `npm run dev`, then open the local URL printed by Vite. Run `npm run build` for a production bundle and publish the `build/` directory on a static host. The build also creates `open.html` and `onboarding-offline.html`, which you can double-click for local previews without a server. Keep the `dist/assets/` folder alongside them. All journeys use fictional data and browser-local state.
+
+Use **Try onboarding** in the app header to open the 11-screen card application flow. The flow also lives at `/onboarding.html`; its final **Start using Eleva** button returns to the member app. Its React source is in `src/onboarding/`.
 
 React renders the app shell, navigation, and page container. The existing screen templates, dialog handlers, and model remain in `dist/*.js` so the current demo flows and saved browser sessions behave as before. `scripts/prepare.mjs` copies those scripts and artwork into Vite's public assets before development or build. No external service is used at runtime.
 

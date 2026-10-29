@@ -30,7 +30,8 @@ function Sidebar({ view }) {
 }
 
 function Header({ view, label }) {
-  return <header className="topbar"><div className="mobile-logo"><Brand /></div><div className="breadcrumb">Your Eleva <span>/ &nbsp;{label}</span></div><div className="top-actions"><span className="proto-pill"><i />PRIVATE PROTOTYPE · DEMO DATA</span><button className="icon-button" aria-label="Notifications" data-action="notifications"><Icon name="bell" size={18} />{!view.noticesRead && <span className="notification-dot" />}</button><button className="avatar" aria-label="Your profile" data-action="profile">RS</button></div></header>;
+  const onboardingUrl = location.protocol === 'file:' ? './onboarding-offline.html' : '/onboarding.html';
+  return <header className="topbar"><div className="mobile-logo"><Brand /></div><div className="breadcrumb">Your Eleva <span>/ &nbsp;{label}</span></div><div className="top-actions"><span className="proto-pill"><i />PRIVATE PROTOTYPE · DEMO DATA</span><a className="onboarding-link" href={onboardingUrl}>Try onboarding <Icon name="chevron" size={13} /></a><button className="icon-button" aria-label="Notifications" data-action="notifications"><Icon name="bell" size={18} />{!view.noticesRead && <span className="notification-dot" />}</button><button className="avatar" aria-label="Your profile" data-action="profile">RS</button></div></header>;
 }
 
 function MobileNavigation({ view }) {

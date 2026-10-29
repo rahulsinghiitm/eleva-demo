@@ -1,0 +1,78 @@
+/* ============================================================
+   App shell — a centered phone frame on desktop, full-bleed on
+   mobile — plus the flow's shared keyframes (ported from the
+   original Eleva Card Onboarding design).
+   ============================================================ */
+
+body {
+  background: #e8e6e2;
+}
+
+.stage {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* The device: fixed 390 × 844 (iPhone-class) with a soft bezel. */
+.device {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  max-height: calc(100dvh - 48px);
+  border-radius: 46px;
+  background: var(--surface-page);
+  box-shadow:
+    0 0 0 11px #1b1a1a,
+    0 0 0 13px #2c2b2b,
+    var(--shadow-xl),
+    0 40px 80px rgba(35, 31, 32, 0.35);
+  overflow: hidden;
+}
+
+/* Full-bleed on small screens — drop the bezel. */
+@media (max-width: 460px) {
+  .stage { padding: 0; }
+  .device {
+    width: 100%;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.screen {
+  height: 100%;
+  width: 100%;
+  background: var(--surface-page);
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reusable animations from the source composition */
+@keyframes screenIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes fadeUp   { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+@keyframes ringDraw { 0% { stroke-dashoffset: 540; } 100% { stroke-dashoffset: 135; } }
+@keyframes cardIn   { 0% { opacity: 0; transform: translateY(46px) scale(.92); } 100% { opacity: 1; transform: none; } }
+@keyframes softPulse{ 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
+@keyframes glowPulse{ 0%, 100% { box-shadow: 0 0 0 0 rgba(240,78,48,0); } 50% { box-shadow: 0 0 44px 4px rgba(240,78,48,.28); } }
+
+/* Custom scrollbars kept subtle inside the device */
+.screen ::-webkit-scrollbar { width: 0; height: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
