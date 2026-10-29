@@ -4,13 +4,13 @@ Interactive React prototype built with Vite. Photography is bundled locally; see
 
 ## Run locally
 
-Run `npm install` and `npm run dev`, then open the local URL printed by Vite. Run `npm run build` for a production bundle and publish the `build/` directory on a static host. The build also creates `open.html` and `onboarding-offline.html`, which you can double-click for local previews without a server. Keep the `dist/assets/` folder alongside them. All journeys use fictional data and browser-local state.
-
-Use **Try onboarding** in the app header to open the 11-screen card application flow. The flow also lives at `/onboarding.html`; its final **Start using Eleva** button returns to the member app. Its React source is in `src/onboarding/`.
+Run `npm install` and `npm run dev`, then open the local URL printed by Vite. Run `npm run build` for a production bundle and publish the `build/` directory on a static host. The build also creates `open.html`, which you can double-click for a local preview without a server. Keep the `dist/assets/` folder alongside it. All journeys use fictional data and browser-local state.
 
 React renders the app shell, navigation, and page container. The existing screen templates, dialog handlers, and model remain in `dist/*.js` so the current demo flows and saved browser sessions behave as before. `scripts/prepare.mjs` copies those scripts and artwork into Vite's public assets before development or build. No external service is used at runtime.
 
 ## Main journeys
+
+- Fresh browsers enter the original simulated onboarding flow: details, phone OTP, portfolio lookup, pledge selection, credit limit, identity check, lien authorisation, and e-sign. Existing demo sessions can use **Try onboarding** on Home, in the header, or in Profile. The draft stays in memory until completion.
 
 - Overview → card bill → amount selection → review → payment receipt → activity.
 - Discover → category or search → save offer → terms → activation → demo voucher.
@@ -23,13 +23,15 @@ React renders the app shell, navigation, and page container. The existing screen
 
 ## Data model
 
-All data is fictional. The opening linked portfolio is ₹12,00,000, of which ₹8,00,000 is pledged. A 50% illustrative advance rate produces a ₹4,00,000 limit. Eight transactions reconcile to ₹68,450 outstanding, leaving ₹3,31,550 available. The opening statement balance is ₹24,850. Payments restore available credit; pledge changes update the credit limit. Personal transaction caps never increase credit availability.
+All data is fictional. The seeded member portfolio is ₹12,00,000, of which ₹8,00,000 is pledged. A 55% illustrative advance rate produces a ₹4,40,000 limit. Eight transactions reconcile to ₹68,450 outstanding, leaving ₹3,71,550 available. The opening statement balance is ₹24,850. Payments restore available credit; pledge changes update the credit limit. Personal transaction caps never increase credit availability.
 
 State is stored under `eleva-demo-v3` in browser localStorage. There is no banking API, actual payment, real pledge, merchant redemption, adviser booking, or account authentication inside the prototype. The deployed Sites audience is owner-private. Fictional card details are display-only. PIN values are never stored.
 
 ## Validation
 
 Run `npm test` and `npm run build`.
+
+The original onboarding uses demo OTP `123456` at both verification steps and the sample e-sign name `Rahul Singh`. Completion unlocks a new member card with the selected pledge and ₹0 dues. All 56 model tests pass, including onboarding validation and limit calculations. The end-to-end flow was also checked in the React app through e-sign and return to Home.
 
 Browser QA was performed using the Sites managed preview: desktop at 1366 pixels and responsive frames at 390 and 360 pixels (345-pixel content viewport with a desktop scrollbar). All five navigation destinations fit without horizontal overflow. Tested card freeze/unfreeze, international control, fictional card detail reveal, statement and partial payments, invalid payment amounts, offer search/category/save/activation, product interest, PIN mismatch and success, pledge consent, over-allocation validation, pledge review/confirmation, pledge release, and market simulation. Also tested autopay and transaction cap changes, persistence after reload, profile access, reset, and CSV export (eight transactions reconcile to ₹68,450).
 

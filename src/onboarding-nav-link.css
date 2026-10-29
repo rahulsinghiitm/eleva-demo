@@ -1,0 +1,24 @@
+.onboarding-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #cdd5c6;
+  border-radius: 999px;
+  background: transparent;
+  color: #283327;
+  padding: 8px 11px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.onboarding-nav-link:hover,
+.onboarding-nav-link:focus-visible { background: #eaeede; }
+
+@media (max-width: 700px) {
+  .top-actions .proto-pill { display: none; }
+  .onboarding-nav-link { padding: 7px 9px; font-size: 10px; }
+}

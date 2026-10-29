@@ -30,8 +30,7 @@ function Sidebar({ view }) {
 }
 
 function Header({ view, label }) {
-  const onboardingUrl = location.protocol === 'file:' ? './onboarding-offline.html' : '/onboarding.html';
-  return <header className="topbar"><div className="mobile-logo"><Brand /></div><div className="breadcrumb">Your Eleva <span>/ &nbsp;{label}</span></div><div className="top-actions"><span className="proto-pill"><i />PRIVATE PROTOTYPE · DEMO DATA</span><a className="onboarding-link" href={onboardingUrl}>Try onboarding <Icon name="chevron" size={13} /></a><button className="icon-button" aria-label="Notifications" data-action="notifications"><Icon name="bell" size={18} />{!view.noticesRead && <span className="notification-dot" />}</button><button className="avatar" aria-label="Your profile" data-action="profile">RS</button></div></header>;
+  return <header className="topbar"><div className="mobile-logo"><Brand /></div><div className="breadcrumb">Your Eleva <span>/ &nbsp;{label}</span></div><div className="top-actions"><span className="proto-pill"><i />PRIVATE PROTOTYPE · DEMO DATA</span><button className="onboarding-nav-link" data-action="onboard-start">Try onboarding <Icon name="chevron" size={13} /></button><button className="icon-button" aria-label="Notifications" data-action="notifications"><Icon name="bell" size={18} />{!view.noticesRead && <span className="notification-dot" />}</button><button className="avatar" aria-label="Your profile" data-action="profile">RS</button></div></header>;
 }
 
 function MobileNavigation({ view }) {
@@ -39,8 +38,9 @@ function MobileNavigation({ view }) {
 }
 
 export function ElevaApp({ view }) {
-  const label = view.navs.find(([route]) => route === view.route)[2];
+  const label = view.route === 'onboarding' ? 'Get started' : view.navs.find(([route]) => route === view.route)[2];
   useEffect(() => { document.title = `Eleva — ${label}`; }, [label]);
+  if (view.route === 'onboarding') return <div dangerouslySetInnerHTML={{ __html: view.content }} />;
   return <>
     <Sidebar view={view} />
     <div className="shell"><Header view={view} label={label} /><main id="main" className="main" tabIndex={-1}><div dangerouslySetInnerHTML={{ __html: view.content }} /><footer className="app-footer"><span>© 2026 Eleva · Built around your ambition.</span><span>Illustrative terms &amp; demo balances. No real banking actions. &nbsp; <button data-action="about">About this prototype ↗</button></span></footer></main></div>

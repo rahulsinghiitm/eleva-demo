@@ -4,7 +4,8 @@ import { flushSync } from 'react-dom';
 import '../dist/styles.css';
 import '../dist/rewards.css';
 import '../dist/redemptions.css';
-import './onboarding-link.css';
+import '../dist/onboarding.css';
+import './onboarding-nav-link.css';
 import { ElevaApp } from './ElevaApp.jsx';
 
 window.addEventListener('DOMContentLoaded', () => {
