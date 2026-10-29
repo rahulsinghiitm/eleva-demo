@@ -5,6 +5,7 @@ import '../dist/styles.css';
 import '../dist/rewards.css';
 import '../dist/redemptions.css';
 import '../dist/onboarding.css';
+import '../dist/logo.css';
 import './onboarding-nav-link.css';
 import { ElevaApp } from './ElevaApp.jsx';
 

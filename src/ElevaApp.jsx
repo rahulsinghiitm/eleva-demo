@@ -16,7 +16,8 @@ function Icon({ name, size = 20 }) {
 }
 
 function Brand() {
-  return <a className="brand" href="#home" aria-label="Eleva home"><svg viewBox="0 0 40 40" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M4 31 32 5v29H20V20L4 35Z" /></svg>eleva</a>;
+  const source = location.protocol === 'file:' ? './dist/assets/eleva-mark-acid.png' : './assets/eleva-mark-acid.png';
+  return <a className="brand" href="#home" aria-label="Eleva home"><span className="brand-mark" aria-hidden="true"><img src={source} alt="" /></span>eleva</a>;
 }
 
 function Sidebar({ view }) {

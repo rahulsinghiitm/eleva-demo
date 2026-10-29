@@ -3,7 +3,7 @@ import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 const bundle = readdirSync('build/assets').find(file => /^index-.*\.js$/.test(file));
 if (!bundle) throw new Error('React bundle not found; run the Vite build first.');
 
-const styles = ['styles.css', 'rewards.css', 'redemptions.css', 'onboarding.css']
+const styles = ['styles.css', 'rewards.css', 'redemptions.css', 'onboarding.css', 'logo.css']
   .map(file => readFileSync(`dist/${file}`, 'utf8').replaceAll('./assets/', './dist/assets/'))
   .join('\n');
 const scripts = ['rewards.js', 'redemptions.js', 'onboarding.js', 'app.js']
@@ -18,7 +18,7 @@ writeFileSync('open.html', `<!doctype html>
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#131613">
   <title>Eleva — Your wealth. Your credit.</title>
-  <link rel="icon" href="./dist/assets/eleva.svg" type="image/svg+xml">
+  <link rel="icon" href="./dist/assets/eleva-mark-acid.png" type="image/png">
   <style>${styles}</style>
 </head>
 <body>

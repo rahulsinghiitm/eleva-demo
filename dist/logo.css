@@ -1,0 +1,20 @@
+.brand-mark {
+  display: block;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.brand-mark img {
+  display: block;
+  width: 167%;
+  height: 167%;
+  max-width: none;
+  transform: translate(-20%, -16%);
+}
+
+@media (max-width: 760px) {
+  .mobile-logo .brand-mark { width: 24px; height: 24px; }
+  .onboarding-header .brand-mark { width: 25px; height: 25px; }
+}
