@@ -1,12 +1,12 @@
 # Eleva member app
 
-Buildless interactive prototype. Vanilla HTML, CSS, and JavaScript; no network services or external asset dependencies. Photography is bundled locally; see PHOTO_CREDITS.md for sources. The Sites manifest is the canonical deployment identity.
+Interactive React prototype built with Vite. Photography is bundled locally; see PHOTO_CREDITS.md for sources. The Sites manifest is the canonical deployment identity.
 
 ## Run locally
 
-With Python 3 installed, run `python3 -m http.server 4173 --directory dist` from the repository root, then open <http://localhost:4173>. No dependency installation or build step is required.
+Run `npm install` and `npm run dev`, then open the local URL printed by Vite. Run `npm run build` for a production bundle and publish the `build/` directory on a static host. The build also creates `open.html`, which you can double-click for a local preview without a server. Keep the `dist/assets/` folder alongside it. All journeys use fictional data and browser-local state.
 
-For a static host, publish the `dist/` directory. All journeys use fictional data and browser-local state.
+React renders the app shell, navigation, and page container. The existing screen templates, dialog handlers, and model remain in `dist/*.js` so the current demo flows and saved browser sessions behave as before. `scripts/prepare.mjs` copies those scripts and artwork into Vite's public assets before development or build. No external service is used at runtime.
 
 ## Main journeys
 
@@ -27,7 +27,7 @@ State is stored under `eleva-demo-v3` in browser localStorage. There is no banki
 
 ## Validation
 
-Run `node --test qa/model.test.cjs` and `node --check dist/app.js`.
+Run `npm test` and `npm run build`.
 
 Browser QA was performed using the Sites managed preview: desktop at 1366 pixels and responsive frames at 390 and 360 pixels (345-pixel content viewport with a desktop scrollbar). All five navigation destinations fit without horizontal overflow. Tested card freeze/unfreeze, international control, fictional card detail reveal, statement and partial payments, invalid payment amounts, offer search/category/save/activation, product interest, PIN mismatch and success, pledge consent, over-allocation validation, pledge review/confirmation, pledge release, and market simulation. Also tested autopay and transaction cap changes, persistence after reload, profile access, reset, and CSV export (eight transactions reconcile to ₹68,450).
 

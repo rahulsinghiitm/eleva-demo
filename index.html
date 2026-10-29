@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#131613">
+  <meta name="description" content="Choose mutual funds, flight credits, experiences, drops, or vouchers with your Eleva reward points. Manage your card and wealth-backed limits. Interactive prototype.">
+  <title>Eleva — Your wealth. Your credit.</title>
+  <link rel="icon" href="/assets/eleva.svg" type="image/svg+xml">
+  <script src="/legacy/rewards.js" defer></script>
+  <script src="/legacy/redemptions.js" defer></script>
+  <script src="/legacy/app.js" defer></script>
+  <script type="module" src="/src/main.jsx"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="app"></div>
+  <div id="overlay-root"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    if (location.protocol === 'file:') document.getElementById('app').innerHTML = '<p style="font:18px system-ui;padding:32px">Open <a href="./open.html">Eleva offline preview</a> instead.</p>';
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "eleva-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/prepare.mjs && vite",
+    "build": "node scripts/prepare.mjs && vite build && node scripts/export-offline.mjs",
+    "preview": "vite preview",
+    "test": "node --test qa/model.test.cjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}
