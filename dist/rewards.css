@@ -115,7 +115,7 @@
 .home-reward-destination small{font-size:8px;color:#9cb088;white-space:nowrap}
 .reward-conversion-line{flex-wrap:wrap;gap:10px}
 .reward-inline-fee{font-size:9px;color:#9db387;border-left:1px solid #ffffff20;padding-left:11px}
-@media(max-width:760px){.dashboard-grid>.home-reward-hero{order:-1}.home-reward-destination{font-size:9px}.reward-inline-fee{font-size:8px}}
+@media(max-width:760px){.home-reward-destination{font-size:9px}.reward-inline-fee{font-size:8px}}
 /* Current portfolio value above a data-driven monthly RP chart. */
 .rp-portfolio-hero{background:#080e09 url('./assets/portfolio-backdrop.png') center/cover no-repeat;padding:26px 27px 18px;color:#f2f6ee}
 .rp-portfolio-hero>.spread>.eyebrow{color:#b9c8a9;font-size:8px;letter-spacing:1.35px}
